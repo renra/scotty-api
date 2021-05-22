@@ -1,0 +1,54 @@
+name:                scotty-api
+version:             0.1.0.0
+github:              "githubuser/scotty-api"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2021 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/scotty-api#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- ghcid ==0.8.7
+- hspec ==2.7.8
+- http-conduit ==2.3.8
+- scotty ==0.12
+- wai-extra ==3.1.6
+- aeson ==1.5.6.0
+
+library:
+  source-dirs: src
+
+executables:
+  scotty-api-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - scotty-api
+
+tests:
+  scotty-api-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - scotty-api
