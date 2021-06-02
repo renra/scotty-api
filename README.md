@@ -15,5 +15,5 @@ $ make
 
 ```bash
 $ make
-$ make test -- In another window - Tests are run against the actual localhost server so it must be running first
+$ make test # In another window - Tests are run against the actual localhost server so it must be running first
 ```
