@@ -1,6 +1,9 @@
 module Lib
-    ( someFunc
+    ( reportUsersCount
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+count :: Int
+count = 11
+
+reportUsersCount :: IO ()
+reportUsersCount = putStrLn ("We currently have " ++ (show count) ++ " users.")

@@ -17,13 +17,13 @@ sendRequest endpoint = do
 main :: IO ()
 main = hspec $ do
   it "responds to GET /" $ do
-    response <- sendRequest("/")
+    response <- sendRequest "/"
 
     (HTTP.getResponseBody response) `shouldBe` ("{\"message\":\"Hi\"}")
     (HTTP.getResponseStatusCode response) `shouldBe` (200 :: Int)
 
   it "responds to GET /nonsense" $ do
-    response <- sendRequest("/nonsense")
+    response <- sendRequest "/nonsense"
 
     (HTTP.getResponseBody response) `shouldBe` ("{\"message\":\"Not found\"}")
     (HTTP.getResponseStatusCode response) `shouldBe` (404 :: Int)

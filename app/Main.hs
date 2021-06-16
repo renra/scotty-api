@@ -11,7 +11,6 @@ import qualified Network.Wai.Middleware.RequestLogger
 import qualified Text.Read
 import qualified GHC.Generics
 import qualified System.Environment
---import qualified Network.HTTP.Types.Status as HTTPStatus
 
 data Message = Message
   { message    :: String } deriving GHC.Generics.Generic
@@ -22,8 +21,8 @@ rootEndpoint :: Scotty.ScottyM()
 rootEndpoint =
   Scotty.get "/" $ Scotty.json $ Message "Hi"
 
-unknownEndpoint :: Scotty.ScottyM()
-unknownEndpoint =
+notFoundEndpoint :: Scotty.ScottyM()
+notFoundEndpoint =
   Scotty.notFound $ Scotty.json $ Message "Not found"
 
 main :: IO ()
@@ -34,4 +33,4 @@ main = do
 
   Scotty.scotty port $ do
          Scotty.middleware Network.Wai.Middleware.RequestLogger.logStdoutDev
-         rootEndpoint >> unknownEndpoint
+         rootEndpoint >> notFoundEndpoint

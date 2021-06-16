@@ -24,6 +24,7 @@ dependencies:
 - ghcid ==0.8.7
 - hspec ==2.7.8
 - http-conduit ==2.3.8
+- http-types ==0.12.3
 - scotty ==0.12
 - wai-extra ==3.1.6
 - aeson ==1.5.6.0
